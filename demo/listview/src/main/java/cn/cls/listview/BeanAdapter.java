@@ -38,14 +38,26 @@ public class BeanAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
+        ViewHolder viewHolder;
+
         if (convertView == null) {
+            viewHolder = new ViewHolder();
             convertView = LayoutInflater.from(context).inflate(R.layout.list_item, parent, false);
+            viewHolder.textView = convertView.findViewById(R.id.tv);
+            convertView.setTag(viewHolder);
+        } else {
+            viewHolder = (ViewHolder) convertView.getTag();
         }
-        TextView textView = convertView.findViewById(R.id.tv);
-        textView.setText(data.get(position).getName());
+//        TextView textView = convertView.findViewById(R.id.tv);
+        viewHolder.textView.setText(data.get(position).getName());
 
         Log.e("cls", "getView: " + position);
 
         return convertView;
     }
+
+    private static class ViewHolder {
+        TextView textView;
+    }
+
 }
