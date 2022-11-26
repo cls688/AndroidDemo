@@ -1,3 +1,5 @@
 package cn.cls.listview
 
-data class Bean()
+data class Bean(
+    var name: String
+)
