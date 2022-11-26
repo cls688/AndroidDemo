@@ -15,3 +15,4 @@ dependencyResolutionManagement {
 rootProject.name = "demo"
 include ':app'
 include ':listview'
+include ':recycler_view'
